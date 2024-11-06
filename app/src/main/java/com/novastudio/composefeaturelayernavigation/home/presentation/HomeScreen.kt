@@ -22,19 +22,12 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(navigateToA: () -> Unit, navigateBack: () -> Unit) {
+fun HomeScreen(navigateToA: () -> Unit) {
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(text = "HomeScreen") },
-                navigationIcon = {
-                    IconButton(
-                        onClick = { navigateBack() }
-                    ) {
-                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                }
             )
         }
     ) { innerPadding ->

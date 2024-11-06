@@ -19,10 +19,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.novastudio.composefeaturelayernavigation.core.navigation.Mobile
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ScreenB(navigateToHome: () -> Unit, navigateBack: () -> Unit) {
+fun ScreenB(mobile: Mobile, navigateToHome: () -> Unit, navigateBack: () -> Unit) {
 
     Scaffold(
         topBar = {
@@ -38,11 +39,18 @@ fun ScreenB(navigateToHome: () -> Unit, navigateBack: () -> Unit) {
             )
         }
     ) { innerPadding ->
-        Column(modifier = Modifier.fillMaxSize().padding(innerPadding),
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .padding(innerPadding),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = "Screen B")
+
+            Spacer(modifier = Modifier
+                .height(16.dp))
+            println(mobile)
+            Text("${mobile.model}\n${mobile.color}\n${mobile.price}\n${mobile.screenSize}" )
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = { navigateToHome() }
