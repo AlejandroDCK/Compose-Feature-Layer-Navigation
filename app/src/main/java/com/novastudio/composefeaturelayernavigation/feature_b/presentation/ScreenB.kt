@@ -19,10 +19,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Destination<RootGraph>
 @Composable
-fun ScreenB(navigateToHome: () -> Unit, navigateBack: () -> Unit) {
+fun ScreenB(message: String, navigateBack: () -> Unit, navigateToHome: () -> Unit, ) {
 
     Scaffold(
         topBar = {
@@ -43,6 +46,8 @@ fun ScreenB(navigateToHome: () -> Unit, navigateBack: () -> Unit) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(text = "Screen B")
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(text = message)
             Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = { navigateToHome() }

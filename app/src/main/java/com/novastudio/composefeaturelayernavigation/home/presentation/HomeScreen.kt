@@ -19,23 +19,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootGraph
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Destination<RootGraph>(start = true)
 @Composable
-fun HomeScreen(navigateToA: () -> Unit, navigateBack: () -> Unit) {
-
+fun HomeScreen(navigateToA: () -> Unit) {
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(text = "HomeScreen") },
-                navigationIcon = {
-                    IconButton(
-                        onClick = { navigateBack() }
-                    ) {
-                        Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "Back")
-                    }
-                }
-            )
+            TopAppBar(title = { Text(text = "Home Screen") })
         }
     ) { innerPadding ->
         Column(modifier = Modifier.fillMaxSize().padding(innerPadding),
@@ -51,7 +44,4 @@ fun HomeScreen(navigateToA: () -> Unit, navigateBack: () -> Unit) {
             }
         }
     }
-
-
-
 }
