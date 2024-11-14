@@ -9,6 +9,8 @@ plugins {
     id("io.gitlab.arturbosch.detekt") version "1.23.7"
 }
 
+//
+
 allprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")
 
