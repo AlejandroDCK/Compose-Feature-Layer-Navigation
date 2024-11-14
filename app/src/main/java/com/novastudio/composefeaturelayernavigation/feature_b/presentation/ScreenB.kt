@@ -48,10 +48,12 @@ fun ScreenB(mobile: Mobile, navigateToHome: () -> Unit, navigateBack: () -> Unit
             Text(text = "Screen B")
 
             Spacer(modifier = Modifier
-                .height(16.dp))
+                .height(16.dp)
+            )
             println(mobile)
-            Text("${mobile.model}\n${mobile.color}\n${mobile.price}\n${mobile.screenSize}" )
-            Spacer(modifier = Modifier.height(16.dp))
+            Text("${mobile.model}\n${mobile.color}\n${mobile.price}\n${mobile.screenSize}")
+            Spacer(modifier = Modifier.height(16.dp)
+            )
             Button(
                 onClick = { navigateToHome() }
             ) {
@@ -59,7 +61,4 @@ fun ScreenB(mobile: Mobile, navigateToHome: () -> Unit, navigateBack: () -> Unit
             }
         }
     }
-
-
-
 }

@@ -5,7 +5,9 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.kotlin.compose)
+    id("io.gitlab.arturbosch.detekt")
 }
+
 
 android {
     namespace = "com.novastudio.composefeaturelayernavigation"
@@ -75,4 +77,28 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.raamCosta.composeDestinations)
     ksp(libs.ksp)
+    detektPlugins(libs.detekt.formatting)
 }
+
+tasks.register<Copy>("copyPreCommitHook") {
+    description = "Copy pre-commit hook from scripts to .git/hooks"
+    group = "git hooks"
+    outputs.upToDateWhen { false }
+    from(file("$rootDir/scripts/pre-commit"))
+    into(file("$rootDir/.git/hooks/"))
+    include("pre-commit")
+}
+
+tasks.build {
+    dependsOn("copyPreCommitHook")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    reports {
+        xml.required = true
+        html.required = true
+        txt.required = true
+    }
+    kotlin { jvmTarget = "1.8" }
+}
+

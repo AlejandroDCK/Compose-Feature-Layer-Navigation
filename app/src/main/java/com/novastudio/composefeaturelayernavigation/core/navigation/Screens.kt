@@ -1,5 +1,4 @@
 package com.novastudio.composefeaturelayernavigation.core.navigation
-
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.Serializable
@@ -20,4 +19,4 @@ data class Mobile(
     val price: Double,
     val color: String,
     val screenSize: Double
-): Parcelable
+) : Parcelable
