@@ -36,11 +36,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -99,6 +99,6 @@ tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
         html.required = true
         txt.required = true
     }
-    kotlin { jvmTarget = "11" }
+    kotlin { jvmTarget = "17" }
 }
 
