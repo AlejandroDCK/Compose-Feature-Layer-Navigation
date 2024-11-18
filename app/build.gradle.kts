@@ -5,7 +5,10 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.google.ksp)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.daggerHiltAndroid)
     id("io.gitlab.arturbosch.detekt")
+    id("kotlin-kapt")
+
 }
 
 
@@ -72,12 +75,19 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-
+    // Navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.raamCosta.composeDestinations)
     ksp(libs.ksp)
+    // Detekt
     detektPlugins(libs.detekt.formatting)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 }
 
 tasks.register<Copy>("copyPreCommitHook") {

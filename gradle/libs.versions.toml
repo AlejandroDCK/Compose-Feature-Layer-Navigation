@@ -13,10 +13,13 @@ kotlinxSerialization = "1.7.3"
 kotlinParcelize = "1.8.10"
 appcompat = "1.7.0"
 material = "1.12.0"
-ksp = "2.0.21-1.0.26"
+ksp = "2.0.21-1.0.28"
 raamCostaComposeDestinations = "2.1.0-beta02"
 navigationCompose = "2.8.3"
 detekt = "1.23.7"
+hiltAndroid = "2.51.1"
+hiltCompiler = "1.2.0"
+hiltPlugin = "2.51.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,6 +44,10 @@ ksp = { module = "io.github.raamcosta.compose-destinations:ksp", version.ref = "
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 raamCosta-ComposeDestinations = { group = "io.github.raamcosta.compose-destinations", name = "core", version.ref = "raamCostaComposeDestinations" }
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detekt" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
+androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltCompiler" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -50,4 +57,4 @@ kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref 
 android-library = { id = "com.android.library", version.ref = "agp" }
 google-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-
+daggerHiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }

@@ -7,9 +7,9 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.compose) apply false
     id("io.gitlab.arturbosch.detekt") version "1.23.7"
+    alias(libs.plugins.daggerHiltAndroid) apply false
+    alias(libs.plugins.google.ksp) apply false
 }
-
-//
 
 allprojects {
     apply(plugin = "io.gitlab.arturbosch.detekt")

@@ -19,11 +19,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.novastudio.composefeaturelayernavigation.core.navigation.Mobile
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenA(navigateToB: (Mobile) -> Unit, navigateBack: () -> Unit) {
+
+    val viewModelScreenA = hiltViewModel<ScreenAViewModel>()
 
     Scaffold(
         topBar = {
@@ -49,7 +52,7 @@ fun ScreenA(navigateToB: (Mobile) -> Unit, navigateBack: () -> Unit) {
             Text(text = "Screen A")
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { navigateToB(Mobile("Samsung", 1000.0, "Black", 6.5)) }
+                onClick = { navigateToB(viewModelScreenA.injectMobile()) }
             ) {
                 Text(text = "Navigate to B")
             }
