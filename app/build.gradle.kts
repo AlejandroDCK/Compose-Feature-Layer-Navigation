@@ -76,15 +76,8 @@ dependencies {
     implementation(libs.raamCosta.composeDestinations)
     ksp(libs.ksp)
 
-    val koin_version = "4.0.0"
-
-    // KOin
-    //implementation(libs.koin.dependencyInjection)
-    //implementation(libs.koin.dependencyInjection.compose)
-    //implementation(libs.koin.dependencyInjection.boom)
-    //implementation(libs.koin.dependencyInjection.viewModel)
-    //implementation(libs.koin.dependencyInjection.androidXCompose)
-    implementation("io.insert-koin:koin-compose:$koin_version")
-    implementation("io.insert-koin:koin-compose-viewmodel:$koin_version")
-    implementation("io.insert-koin:koin-androidx-compose:$koin_version")
+    // Koin
+    implementation(libs.koin.compose)
+    implementation(libs.koin.compose.viewmodel)
+    implementation(libs.koin.androidx.compose)
 }
