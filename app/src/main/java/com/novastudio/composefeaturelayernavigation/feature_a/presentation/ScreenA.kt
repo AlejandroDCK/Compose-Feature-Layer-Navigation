@@ -20,10 +20,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.novastudio.composefeaturelayernavigation.core.navigation.Mobile
+import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScreenA(navigateToB: (Mobile) -> Unit, navigateBack: () -> Unit) {
+
+    val screenAViewModel: ScreenAViewModel = koinViewModel()
 
     Scaffold(
         topBar = {
@@ -49,7 +52,9 @@ fun ScreenA(navigateToB: (Mobile) -> Unit, navigateBack: () -> Unit) {
             Text(text = "Screen A")
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { navigateToB(Mobile("Samsung", 1000.0, "Black", 6.5)) }
+                onClick = { navigateToB(
+                    screenAViewModel.injectMobile()
+                ) }
             ) {
                 Text(text = "Navigate to B")
             }
